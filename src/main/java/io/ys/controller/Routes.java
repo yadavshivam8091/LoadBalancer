@@ -28,7 +28,6 @@ public class Routes {
 			HttpServletRequest request, HttpServletResponse response) throws URISyntaxException, IOException {
 		
 		try {
-			System.out.println("heree");
 			Server server = serverAdapter.getServer();
 			Request Request = new Request(request, method, server.get(), body);
 			return Request.execute();

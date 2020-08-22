@@ -3,6 +3,7 @@ package io.ys.Application;
 import org.springframework.beans.BeansException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
 import org.springframework.boot.web.server.WebServerFactoryCustomizer;
@@ -39,7 +40,7 @@ public class Application implements ApplicationContextAware, WebServerFactoryCus
 						.println(String.format("%s config/s are missing", Appconfig.getMissingResources().toString()));
 				System.exit(0);
 			}
-			
+
 		} catch (Exception e) {
 			throw e;
 		}
@@ -47,9 +48,9 @@ public class Application implements ApplicationContextAware, WebServerFactoryCus
 
 	@Bean
 	ServletWebServerFactory servletWebServerFactory() {
-		return new TomcatServletWebServerFactory();
+		return new JettyServletWebServerFactory();
 	}
-	
+
 	public void customize(ConfigurableWebServerFactory factory) {
 		factory.setPort(ServerConfig.getPort());
 	}
