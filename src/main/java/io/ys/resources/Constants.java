@@ -1,4 +1,4 @@
-package io.ys.Resources;
+package io.ys.resources;
 
 public class Constants {
 

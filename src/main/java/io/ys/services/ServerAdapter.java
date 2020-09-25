@@ -1,4 +1,4 @@
-package io.ys.Services;
+package io.ys.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

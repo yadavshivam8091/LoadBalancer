@@ -2,15 +2,17 @@ package io.ys.config;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
 
 @Service("loadbalancer.hostconfig")
-public class TargetConfig {
+@Configuration
+public class TargetConfiguration {
 
 	private static JSONArray hostArray = null;
 	private static String algo_type = "Round-robin";
 
-	public static void initalize(JSONObject config) {
+	public void initalize(JSONObject config) {
 		if (config.has("host")) {
 			hostArray = config.getJSONArray("host");
 		}

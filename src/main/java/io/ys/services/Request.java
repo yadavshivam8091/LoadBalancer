@@ -1,4 +1,4 @@
-package io.ys.Services;
+package io.ys.services;
 
 import java.net.URI;
 import java.net.URISyntaxException;

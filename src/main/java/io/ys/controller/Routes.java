@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpStatusCodeException;
-import io.ys.Services.Request;
-import io.ys.Services.Server;
-import io.ys.Services.ServerAdapter;
+
+import io.ys.services.Request;
+import io.ys.services.Server;
+import io.ys.services.ServerAdapter;
 
 @RestController
 public class Routes {
@@ -35,7 +36,7 @@ public class Routes {
 			return ResponseEntity.status(e.getRawStatusCode()).headers(e.getResponseHeaders())
 					.body(e.getResponseBodyAsString());
 		} catch (Exception e) {
-			System.out.println("herere"+e.getMessage() + ">>>>>>"+e.getCause().getMessage());
+			System.out.println("error encountered"+e.getMessage() + ">>>>>>"+e.getCause().getMessage());
 			return ResponseEntity.status(500).body(e.getMessage());
 		}
 	}

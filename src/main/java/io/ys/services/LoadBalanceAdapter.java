@@ -1,20 +1,21 @@
-package io.ys.Services;
+package io.ys.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import io.ys.config.TargetConfig;
+
+import io.ys.config.TargetConfiguration;
 import io.ys.scheduling.LoadBalance;
 import io.ys.scheduling.RoundRobin;
 
 @Service("loadbalancer.loadbalanceadapter")
 public class LoadBalanceAdapter {
 
-	private static TargetConfig hostConfig;
+	private static TargetConfiguration hostConfig;
 	private AlgorithmType LoadBalanceTechnique = null;
 
 	@Autowired
-	public LoadBalanceAdapter(@Qualifier("loadbalancer.hostconfig") TargetConfig hostConfig) {
+	public LoadBalanceAdapter(@Qualifier("loadbalancer.hostconfig") TargetConfiguration hostConfig) {
 		LoadBalanceAdapter.hostConfig = hostConfig;
 		try {
 		final String algoName = hostConfig.getLoadBalanceingAlgoritm() != null ? hostConfig.getLoadBalanceingAlgoritm() : "round-robin";

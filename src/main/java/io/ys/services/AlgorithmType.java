@@ -1,4 +1,4 @@
-package io.ys.Services;
+package io.ys.services;
 
 public enum AlgorithmType {
 	RoundRobin("round-robin"),

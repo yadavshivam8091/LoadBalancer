@@ -1,4 +1,4 @@
-package io.ys.Resources;
+package io.ys.resources;
 
 import java.io.IOException;
 import java.nio.file.Files;
